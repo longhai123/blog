@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
-language:
+title: 龙海的技术博客
+subtitle: PG内核开发
+description: 淡定从容
+author: Hai Long
+language: zh-Hans
 timezone:
 
 # URL
@@ -63,9 +63,39 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+plugins: hexo-generate-feed
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  # repository: git@github.com:longhai123/longhai123.github.io.git
+  # repository: git@45.78.60.208:hexo.git,master
+  repository: git@vps:hexo.git,master
+  branch: master
+
+# 设置页面文章的篇数
+index_generator:
+  per_page: 5
+
+archive_generator:
+  per_page: 20
+  yearly: true
+  monthly: true
+
+tag_generator:
+  per_page: 10
+
+algolia:
+  applicationID: 'X9CU0F72EW'
+  apiKey: '55e3159e872b9b0b553dfa3930591292'
+  adminApiKey: '41aa407b3d51369b010e4369a41fa27b'
+  indexName: 'hexo'
+  chunkSize: 5000
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
